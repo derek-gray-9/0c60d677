@@ -26,7 +26,14 @@ const ActivityList = () => {
 
     const moveAll = () => {
         const newActivities = structuredClone(activities);
-        newActivities.forEach(activity => activity.isArchived = !showArchive);
+
+        newActivities.filter(activity => {
+            return activity.isArchived === showArchive;
+        }).forEach(activity => {
+            activity.isArchived = !showArchive;
+            ActivitiesApi.patch(activity.id, activity.isArchived);
+        });
+        
         setActivities(newActivities);
     }
 
@@ -34,7 +41,9 @@ const ActivityList = () => {
       <div className="container-view">
         <button onClick={switchToInbox}>Inbox</button>
         <button onClick={switchToArchive}>Archive</button>
-        <button onClick={moveAll}>{showArchive ? 'Unarchive all' : 'Archive all'}</button>
+        <div>
+          <button onClick={moveAll}>{showArchive ? 'Unarchive all' : 'Archive all'}</button>
+        </div>
         {
           activities == null ? 'Loading...'
            : activities.filter(activity => {
