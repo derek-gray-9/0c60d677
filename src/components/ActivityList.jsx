@@ -2,18 +2,18 @@ import { useState, useEffect } from 'react';
 
 import Activity from './Activity.jsx';
 import { ActivityEntity } from '../entities/ActivityEntity.js';
+import { ActivitiesApi } from '../api/ActivitiesApi.js';
 
 const ActivityList = () => {
     const [activities, setActivities] = useState(null);
     const [showArchive, setShowArchive] = useState(false);
 
     useEffect(() => {
-        fetch('https://aircall-backend.onrender.com/activities')
-            .then((response) => response.json())
-            .then((data) => {
-                setActivities(data.map(apiActivity => new ActivityEntity(apiActivity)));
-            })
-            .catch(error => console.error(error));
+        ActivitiesApi.getAll().then(data => 
+            setActivities(
+                data.map(apiActivity => new ActivityEntity(apiActivity))
+            )
+        );
     }, []);
 
     const switchToInbox = () => {
