@@ -3,6 +3,7 @@ import Activity from './Activity.jsx';
 
 const ActivityList = () => {
     const [activities, setActivities] = useState(null);
+    const [showArchive, setShowArchive] = useState(false);
 
     useEffect(() => {
         fetch('https://aircall-backend.onrender.com/activities')
@@ -13,11 +14,23 @@ const ActivityList = () => {
             .catch(error => console.error(error));
     }, []);
 
+    const switchToInbox = () => {
+        setShowArchive(false);
+    }
+
+    const switchToArchive = () => {
+        setShowArchive(true);
+    }
+
     return (
       <div className="container-view">
+        <button onClick={switchToInbox}>Inbox</button>
+        <button onClick={switchToArchive}>Archive</button>
         {
           activities == null ? 'Loading...'
-           : activities.map(activity => <Activity activity={activity}/>)
+           : activities.filter(activity => {
+               return activity.is_archived == showArchive;
+           }).map(activity => <Activity activity={activity}/>)
         }
       </div>
     );
