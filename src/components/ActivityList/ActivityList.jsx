@@ -1,3 +1,5 @@
+import './ActivityList.css';
+
 import { useState, useEffect } from 'react';
 
 import Activity from '../Activity/Activity.jsx';
@@ -24,6 +26,7 @@ const ActivityList = () => {
         setShowArchive(true);
     }
 
+    // Archives all, or unarchives all activities.
     const moveAll = () => {
         const newActivities = structuredClone(activities);
 
@@ -37,10 +40,23 @@ const ActivityList = () => {
         setActivities(newActivities);
     }
 
+    // Archives/unarchives a single activity.
+    function moveOne(activityId) {
+        const newActivities = structuredClone(activities);
+
+        const activity = newActivities.find(activity => activity.id === activityId);
+        activity.isArchived = !showArchive;
+        ActivitiesApi.patch(activity.id, activity.isArchived).then(() => {
+            setActivities(newActivities);
+        });
+    }
+
     return (
       <div className="container-view">
-        <button onClick={switchToInbox}>Inbox</button>
-        <button onClick={switchToArchive}>Archive</button>
+        <div class="tabs">
+            <div class="tab" className={showArchive ? 'inactiveTab' : 'activeTab'} onClick={switchToInbox}>Inbox</div>
+            <div class="tab" className={showArchive ? 'activeTab' : 'inactiveTab'} onClick={switchToArchive}>Archive</div>
+        </div>
         <div>
           <button onClick={moveAll}>{showArchive ? 'Unarchive all' : 'Archive all'}</button>
         </div>
@@ -48,7 +64,7 @@ const ActivityList = () => {
           activities == null ? 'Loading...'
            : activities.filter(activity => {
                return activity.isArchived == showArchive;
-           }).map(activity => <Activity key={activity.id} activity={activity}/>)
+           }).map(activity => <Activity key={activity.id} activity={activity} move={moveOne}/>)
         }
       </div>
     );

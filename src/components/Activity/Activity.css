@@ -1,10 +1,51 @@
 .activity {
+    margin-top: 5px;
+
     border: solid;
     border-color: #DDDDDD;
     border-width: 1px;
-    border-radius: 4px;
+    border-radius: 5px;
 
     background-color: #EEEEEE;
 
-    margin: 5px 2px 0 2px;
+    height: 20px;
+
+    padding-left: 5px;
+}
+
+.details {
+    display: inline-block;
+    
+    height: 20px;
+    line-height: 20px;
+}
+
+.date {
+    float: left;
+    color: #444444;
+    width: 100px;
+}
+
+.info {
+    float: left;
+    color: #444444;
+}
+
+.button {
+    float: right;
+    text-align: center;
+    vertical-align: middle;
+
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    
+    border-radius: 0 5px 5px 0;
+
+    background-color: #DDDDDD;
+}
+
+.button:hover {
+    cursor: default;
+    background-color: #999999;
 }
