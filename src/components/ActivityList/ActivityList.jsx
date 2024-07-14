@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 
-import Activity from './Activity.jsx';
-import { ActivityEntity } from '../entities/ActivityEntity.js';
-import { ActivitiesApi } from '../api/ActivitiesApi.js';
+import Activity from '../Activity/Activity.jsx';
+import { ActivityEntity } from '../../entities/ActivityEntity.js';
+import { ActivitiesApi } from '../../api/ActivitiesApi.js';
 
 const ActivityList = () => {
     const [activities, setActivities] = useState(null);
@@ -48,7 +48,7 @@ const ActivityList = () => {
           activities == null ? 'Loading...'
            : activities.filter(activity => {
                return activity.isArchived == showArchive;
-           }).map(activity => <Activity activity={activity}/>)
+           }).map(activity => <Activity key={activity.id} activity={activity}/>)
         }
       </div>
     );

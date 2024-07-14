@@ -1,0 +1,10 @@
+.activity {
+    border: solid;
+    border-color: #DDDDDD;
+    border-width: 1px;
+    border-radius: 4px;
+
+    background-color: #EEEEEE;
+
+    margin: 5px 2px 0 2px;
+}

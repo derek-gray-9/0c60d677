@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import Header from './Header.jsx';
-import ActivityList from './components/ActivityList.jsx';
+import ActivityList from './components/ActivityList/ActivityList.jsx';
 
 const App = () => {
   return (
