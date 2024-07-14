@@ -54,7 +54,7 @@ const ActivityList = () => {
     return (
       <div className="container-view">
         <div class="tabs">
-            <div class="tab" className={showArchive ? 'inactiveTab' : 'activeTab'} onClick={switchToInbox}>Inbox</div>
+            <div class="tab" className={showArchive ? 'inactiveTab' : 'activeTab'} onClick={switchToInbox}>Activity</div>
             <div class="tab" className={showArchive ? 'activeTab' : 'inactiveTab'} onClick={switchToArchive}>Archive</div>
         </div>
         <div>

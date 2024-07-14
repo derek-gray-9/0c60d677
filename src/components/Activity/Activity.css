@@ -17,14 +17,7 @@
     display: inline-block;
 }
 
-.headline {
-    display: inline-block;
-    
-    height: 20px;
-    line-height: 20px;
-}
-
-.details {
+.row {
     height: 20px;
     line-height: 20px;
 }
@@ -43,6 +36,13 @@
     font-size: 13px;
 }
 
+.info-wide {
+    float: left;
+    color: #444444;
+    width: 130px;
+    font-size: 13px;
+}
+
 .move-button {
     float: right;
     text-align: center;
@@ -57,7 +57,7 @@
     background-color: #DDDDDD;
 }
 
-.button:hover {
+.move-button:hover {
     cursor: default;
     background-color: #999999;
 }
