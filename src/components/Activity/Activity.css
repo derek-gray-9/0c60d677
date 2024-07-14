@@ -8,14 +8,23 @@
 
     background-color: #EEEEEE;
 
-    height: 20px;
+    height: 40px;
 
     padding-left: 5px;
 }
 
-.details {
+.activity-details {
+    display: inline-block;
+}
+
+.headline {
     display: inline-block;
     
+    height: 20px;
+    line-height: 20px;
+}
+
+.details {
     height: 20px;
     line-height: 20px;
 }
@@ -23,22 +32,25 @@
 .date {
     float: left;
     color: #444444;
-    width: 100px;
+    width: 90px;
+    font-size: 13px;
 }
 
 .info {
     float: left;
     color: #444444;
+    width: 70px;
+    font-size: 13px;
 }
 
-.button {
+.move-button {
     float: right;
     text-align: center;
     vertical-align: middle;
 
     width: 20px;
-    height: 20px;
-    line-height: 20px;
+    height: 40px;
+    line-height: 40px;
     
     border-radius: 0 5px 5px 0;
 

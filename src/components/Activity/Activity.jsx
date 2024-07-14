@@ -9,15 +9,24 @@ const Activity = (props) => {
 
     return (
       <div class="activity">
-        <div class="details">
-          <div class="date">
-            { moment(props.activity.createdAt).format('MMM D, h:mma') }
-          </div>
-          <div class="info">
-            {'activity info'}
+        <div class="activity-details">
+          <div class="headline">Aircall via {props.activity.via}</div>
+          <div class="details">
+            <div class="date">
+              { moment(props.activity.createdAt).format('MMM D, h:mma') }
+            </div>
+            <div class="info">
+              {props.activity.from + ' called ' + props.activity.to}
+            </div>
+            <div class="info">
+              {props.activity.direction}
+            </div>
+            <div class="info">
+              {props.activity.callType}
+            </div>
           </div>
         </div>
-        <div class="button" onClick={move}>
+        <div class="move-button" onClick={move}>
           X
         </div>
       </div>
