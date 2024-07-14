@@ -1,4 +1,4 @@
-const baseUrl = 'https://aircall-backend.onrender.com';
+const baseUrl = process.env.AIRCALL_BACKEND_BASE_URL;
 
 export const ActivitiesApi = {
     getAll: async function() {
